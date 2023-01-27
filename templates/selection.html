@@ -1,0 +1,149 @@
+
+
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
+<style>
+    Body {  
+    font-family: Calibri, Helvetica, sans-serif;  
+    background-color: rgb(209, 175, 170);  
+    } 
+    /* form {   
+        border: 3px solid #f1f1f1;
+    } */
+    form {
+    /* background-color: #4CAF50;    */
+    width: 30%; 
+    height: 20%;
+    color: black; 
+    padding: 25px;
+    /* margin: 50px 50px; */
+    border: none;   
+    cursor: pointer;
+    }
+    button:hover {   
+    opacity: 0.7;   
+    }
+    .cancelbtn {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+    } 
+    
+</style>   
+</head>  
+<body>  
+  <br><br>
+    <center> <h1><b> Gateway Selection Form </b></h1> </center><br><br>
+      <center><form action="" method="POST" id="formone">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="formone">
+          <h3 label for="serv">Please Select Server </h3>
+          <select name="server" class="form-control" onchange="this.form.submit()">
+              <option value="select">Select a Server</option>
+              <option value="HMWSSB LNS SERVER">HMWSSB LNS SERVER</option>
+              <option value="LNS Testing">LNS Testing</option>
+              <option value="carosag.me">carosag.me</option>
+          </select>
+          <!-- <button type="submit">Select</button> -->
+      </form>
+          <!-- value of a is {{drop}} -->
+      {% if sersel == "HMWSSB LNS SERVER" or "LNS Testing" or "carosag.me"  %}
+        <center><form action="" method="POST" id="formtwo">
+          {% csrf_token %}
+          <input type="hidden" name="form_type" value="formtwo">
+          <h3 label for="gate">Please Select Gateway Name</h3>
+          <select name="gate" class="form-control" onchange="this.form.submit()">
+            <!-- <option value="org">Select a Organization</option> -->
+            {% for i in gatway_array %}
+              <option value={{i}}>{{i}}</option>
+            {% endfor %}
+          </select>
+      {% else %}
+        <input type="hidden" >
+      {% endif %}
+      </form>
+
+      <!-- <button type="submit">Select</button> -->
+
+      
+      
+      
+        <!-- <div class="container">    
+             <div class="dropdown">  </center>
+              <center><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example </center> 
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">  
+                <li><a href="#">"HMWSSB LNS SERVER"</a></li>
+                <li><a href="#">"LNS Testing"</a></li>
+                <li><a href="#">"carosag.me"</a></li>
+              </ul>   -->
+              <!-- <ul class="dropdown-menu">  
+                {% for i in array %}
+                <li><a href="#">{{i}}</a></li>
+                {% endfor %}
+              </ul> -->
+         
+          
+ 
+    <!-- </ul>  
+  </div>  
+</div>   -->
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+  
+</body>  
+</html>  
+
+
+
+<!-- example 2 -->
+
+<!-- <!DOCTYPE html>  
+<html>  
+ <head><meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>Heading elements</title>  
+ </head>  
+ <body>  
+     <h1>This is main heading of page. </h1>  
+      <p>h1 is the most important heading, which is used to display the keyword of page </p>  
+     <h2>data value : {{data}}</h2> 
+     <h3>a value: {{a}}</h3>
+      
+       
+      <div class="container">  
+         <div class="row">  
+           <div class="col-md-30"></div>  
+           {% load static %}
+           <img src="{% static 'assets/images/logo.png' %}" alt="" style="width: 500px;">  
+         </div> 
+         
+         </div> 
+        </div> 
+   </body> 
+</html>   -->
+
+
+<!-- <!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <title>This is a Bootstrap example</title>  
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
+</head>  
+<body>  
+    <div class="container">  
+        <div class="row">  
+          <div class="col-md-4" style="color:black;"><h3>Column1</h3></div>  
+          <div class="col-md-8" style="color:pink;"><h3>Column2</h3></div>  
+        </div>  
+    </div>    
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+</body>  
+</html>   -->
